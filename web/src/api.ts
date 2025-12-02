@@ -8,6 +8,13 @@ export type ChainInfoResponse = {
   saplingActivationHeight: number
 }
 
+export type BlocksResponse = {
+  startHeight: number
+  endHeight: number
+  count: number
+  blocks: unknown[]
+}
+
 async function getJson<T>(path: string): Promise<T> {
   const res = await fetch(path)
   if (!res.ok) {
@@ -22,4 +29,12 @@ export async function fetchHealth() {
 
 export async function fetchChainInfo() {
   return getJson<ChainInfoResponse>('/api/chain-info')
+}
+
+export async function fetchBlocks(params?: { startHeight?: number; endHeight?: number }) {
+  const qs = new URLSearchParams()
+  if (params?.startHeight != null) qs.set('startHeight', String(params.startHeight))
+  if (params?.endHeight != null) qs.set('endHeight', String(params.endHeight))
+  const suffix = qs.toString() ? `?${qs.toString()}` : ''
+  return getJson<BlocksResponse>(`/api/blocks${suffix}`)
 }

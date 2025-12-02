@@ -1,0 +1,41 @@
+[package]
+name = "zecscope-scanner"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "High-level Zcash shielded transaction scanner for viewing keys. Scan compact blocks with UFVKs to discover Sapling and Orchard transactions."
+repository = "https://github.com/45div/zecscope"
+homepage = "https://github.com/45div/zecscope"
+documentation = "https://docs.rs/zecscope-scanner"
+keywords = ["zcash", "privacy", "blockchain", "scanner", "shielded"]
+categories = ["cryptography::cryptocurrencies"]
+readme = "README.md"
+authors = ["Divij <divij@zecscope.dev>"]
+
+[features]
+default = ["sapling", "orchard"]
+sapling = []
+orchard = ["zcash_client_backend/orchard", "zcash_keys/orchard", "dep:orchard"]
+# Enable WASM support (disables features that don't work in WASM)
+wasm = ["getrandom/js"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4"
+zip32 = "0.2"
+thiserror = "1.0"
+
+# Zcash crates
+zcash_client_backend = { version = "0.21.0", default-features = false }
+zcash_primitives = { version = "0.26.0", default-features = false, features = ["std"] }
+zcash_protocol = { version = "0.7", default-features = false }
+zcash_keys = { version = "0.12.0", default-features = false, features = ["sapling"] }
+orchard = { version = "0.11", default-features = false, optional = true }
+
+# For WASM builds
+getrandom = { version = "0.2", optional = true }
+time = { version = "0.3.37", features = ["std"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }

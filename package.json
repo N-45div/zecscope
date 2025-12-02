@@ -5,6 +5,7 @@
   "workspaces": ["web", "api"],
   "scripts": {
     "dev:web": "npm run dev --workspace web",
-    "dev:api": "npm run dev --workspace api"
+    "dev:api": "npm run dev --workspace api",
+    "build:wasm": "cd zcash-wasm && wasm-pack build --target bundler --out-dir ../web/node_modules/zcash-wasm --release"
   }
 }
