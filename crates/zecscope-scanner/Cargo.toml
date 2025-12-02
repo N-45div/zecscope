@@ -4,13 +4,13 @@ version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "High-level Zcash shielded transaction scanner for viewing keys. Scan compact blocks with UFVKs to discover Sapling and Orchard transactions."
-repository = "https://github.com/45div/zecscope"
-homepage = "https://github.com/45div/zecscope"
+repository = "https://github.com/N-45div/zecscope"
+homepage = "https://github.com/N-45div/zecscope"
 documentation = "https://docs.rs/zecscope-scanner"
 keywords = ["zcash", "privacy", "blockchain", "scanner", "shielded"]
 categories = ["cryptography::cryptocurrencies"]
 readme = "README.md"
-authors = ["Divij <divij@zecscope.dev>"]
+authors = ["N DIVIJ"]
 
 [features]
 default = ["sapling", "orchard"]
