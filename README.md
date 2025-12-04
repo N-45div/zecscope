@@ -154,7 +154,8 @@ zecscope/
 ├── crates/zecscope-scanner/  # 🦀 Core Rust library (publishable)
 ├── zcash-wasm/               # WASM bindings for browser
 ├── web/                      # React frontend (Vite)
-└── api/                      # Fastify + gRPC proxy
+├── api/                      # Fastify + gRPC proxy
+└── proto/                    # Lightwalletd protobuf definitions
 ```
 
 ---

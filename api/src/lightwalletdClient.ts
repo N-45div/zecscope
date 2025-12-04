@@ -6,9 +6,9 @@ const DEFAULT_ENDPOINT = process.env.LIGHTWALLETD_ENDPOINT ?? 'mainnet.lightwall
 
 const serviceProtoPath = path.resolve(
   __dirname,
-  '../../lightwallet-protocol/walletrpc/service.proto',
+  '../../proto/service.proto',
 )
-const includeDir = path.resolve(__dirname, '../../lightwallet-protocol/walletrpc')
+const includeDir = path.resolve(__dirname, '../../proto')
 
 const packageDefinition = protoLoader.loadSync(serviceProtoPath, {
   keepCase: false,
