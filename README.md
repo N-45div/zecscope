@@ -100,7 +100,7 @@ sequenceDiagram
 
 ```bash
 # Clone & install
-git clone https://github.com/yourusername/zecscope.git
+git clone https://github.com/N-45div/zecscope.git
 cd zecscope && npm install
 
 # Build WASM scanner
